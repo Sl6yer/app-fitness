@@ -1,4 +1,5 @@
 import 'package:fitness_app/Screens/home_screen.dart';
+import 'package:fitness_app/Screens/initial_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: HomeScreen(),
+      home: InitialScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:fitness_app/Screens/home.dart';
+import 'package:fitness_app/Screens/profile_screen.dart';
 import 'package:fitness_app/Widgets/Date_Navigator.dart';
 import 'package:fitness_app/Widgets/dados_widget.dart';
+import 'package:fitness_app/Widgets/modal_home.dart';
 import 'package:fitness_app/Widgets/topCurve_clipper.dart';
 import 'package:fitness_app/store/bottom_nav_store.dart';
 import 'package:fitness_app/store/date_store.dart';
@@ -20,7 +22,7 @@ class HomeScreen extends StatelessWidget {
     Home(),
     const Center(child: Text('Favorites')),
     const Center(child: Text('History')),
-    const Center(child: Text('Profile')),
+    ProfileScreen(),
   ];
 
   @override
@@ -33,6 +35,7 @@ class HomeScreen extends StatelessWidget {
           bottomNavigationBar: Observer(
             builder: (_) {
               return BottomAppBar(
+                color: Colors.transparent,
                 shape: const CircularNotchedRectangle(),
                 notchMargin: 8,
                 child: Row(
@@ -43,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                         Icons.home,
                         color:
                             navStore.selectedIndex == 0
-                                ? Colors.orange
+                                ? Color.fromRGBO(254, 85, 48, 1)
                                 : Colors.grey,
                       ),
                       onPressed: () {
@@ -55,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                         Icons.favorite_border,
                         color:
                             navStore.selectedIndex == 1
-                                ? Colors.orange
+                                ? Color.fromRGBO(254, 85, 48, 1)
                                 : Colors.grey,
                       ),
                       onPressed: () {
@@ -68,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                         Icons.access_time,
                         color:
                             navStore.selectedIndex == 2
-                                ? Colors.orange
+                                ? Color.fromRGBO(254, 85, 48, 1)
                                 : Colors.grey,
                       ),
                       onPressed: () {
@@ -80,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                         Icons.person_outline,
                         color:
                             navStore.selectedIndex == 3
-                                ? Colors.orange
+                                ? Color.fromRGBO(254, 85, 48, 1)
                                 : Colors.grey,
                       ),
                       onPressed: () {
@@ -96,9 +99,41 @@ class HomeScreen extends StatelessWidget {
             height: 70,
             width: 70,
             child: FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder:
+                      (context) => Container(
+                        height: MediaQuery.of(context).size.height * 0.35,
+                        width: MediaQuery.of(context).size.width * 1,
+                        padding: EdgeInsets.all(20),
+                        child: Column(
+                          children: [
+                            ModalHome(
+                              iconData: FontAwesomeIcons.utensils,
+                              title: 'Calories Tracker',
+                              subTitle: 'Add consumed calories quickly.',
+                              iconSize: 35,
+                            ),
+                            ModalHome(
+                              iconData: FontAwesomeIcons.users,
+                              title: 'Friends',
+                              subTitle: 'make friends and have fun.',
+                              iconSize: 28,
+                            ),
+                            ModalHome(
+                              iconData: FontAwesomeIcons.moon,
+                              title: 'Sleep Monitor',
+                              subTitle: 'Find your perfect sleep balance.',
+                              iconSize: 45,
+                            ),
+                          ],
+                        ),
+                      ),
+                );
+              },
               shape: const CircleBorder(),
-              backgroundColor: Colors.orange,
+              backgroundColor: Color.fromRGBO(254, 85, 48, 1),
               child: FaIcon(
                 FontAwesomeIcons.play,
                 color: Colors.white,

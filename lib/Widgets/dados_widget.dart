@@ -1,4 +1,7 @@
+import 'package:fitness_app/store/date_store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:fitness_app/store/goals_store_singleton.dart';
 
 class DadosWidget extends StatelessWidget {
   const DadosWidget({super.key});
@@ -11,16 +14,20 @@ class DadosWidget extends StatelessWidget {
       children: [
         Column(
           children: [
-            Text(
-              '7580',
-              style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'Gotham',
-                fontWeight: FontWeight.bold,
-              ),
+            Observer(
+              builder: (_) {
+                return Text(
+                  goalsStore.caloriesGoal.toString(),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Gotham',
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              },
             ),
             Text(
-              'Distance',
+              'Calories',
               style: TextStyle(
                 color: Colors.grey,
                 fontSize: 13,
@@ -32,13 +39,17 @@ class DadosWidget extends StatelessWidget {
         const SizedBox(width: 55),
         Column(
           children: [
-            Text(
-              '9832',
-              style: TextStyle(
-                fontSize: 16,
-                fontFamily: 'Gotham',
-                fontWeight: FontWeight.bold,
-              ),
+            Observer(
+              builder: (_) {
+                return Text(
+                  goalsStore.stepsGoal.toString(),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Gotham',
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              },
             ),
             Text(
               'Steps',
@@ -54,7 +65,7 @@ class DadosWidget extends StatelessWidget {
         Column(
           children: [
             Text(
-              '1248',
+              '${goalsStore.waterGoal} ml',
               style: TextStyle(
                 fontSize: 16,
                 fontFamily: 'Gotham',
@@ -62,7 +73,7 @@ class DadosWidget extends StatelessWidget {
               ),
             ),
             Text(
-              'Points',
+              'Water',
               style: TextStyle(
                 color: Colors.grey,
                 fontSize: 13,
