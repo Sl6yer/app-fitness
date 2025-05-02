@@ -2,19 +2,31 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class WeightHistory extends StatelessWidget {
-  const WeightHistory({super.key});
+  const WeightHistory({
+    super.key,
+    required this.showBorder,
+    required this.showTiles,
+    required this.width,
+  });
+
+  final bool showBorder;
+  final bool showTiles;
+  final int width;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.withOpacity(0.4), width: 1.5),
+        border:
+            showBorder
+                ? Border.all(color: Colors.grey.withOpacity(0.4), width: 1.5)
+                : null,
         borderRadius: BorderRadius.circular(20),
       ),
       child: SizedBox(
         height: 150,
-        width: 230,
+        width: width.toDouble(),
         child: LineChart(
           LineChartData(
             minX: 0,
@@ -42,8 +54,8 @@ class WeightHistory extends StatelessWidget {
             titlesData: FlTitlesData(
               bottomTitles: AxisTitles(
                 sideTitles: SideTitles(
-                  showTitles: false,
-                  reservedSize: 30,
+                  showTitles: showTiles,
+                  reservedSize: 50,
                   getTitlesWidget: (value, meta) {
                     final days = [
                       'Mon',
@@ -54,7 +66,13 @@ class WeightHistory extends StatelessWidget {
                       'Sat',
                       'Sun',
                     ];
-                    return Text(days[value.toInt()]);
+                    return Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Text(
+                        days[value.toInt()],
+                        style: TextStyle(color: Colors.grey[600]),
+                      ),
+                    );
                   },
                 ),
               ),

@@ -64,7 +64,7 @@ class BodyScreen extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
               ),
               const SizedBox(height: 20),
-              WeightHistory(),
+              WeightHistory(showBorder: true, showTiles: false, width: 230),
               const SizedBox(height: 20),
               Container(
                 width: 260,

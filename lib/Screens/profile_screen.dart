@@ -3,7 +3,9 @@ import 'package:fitness_app/Screens/goals_screen.dart';
 import 'package:fitness_app/Screens/settings_screen.dart';
 import 'package:fitness_app/Widgets/row_profile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fitness_app/store/profile_store_singleton.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -26,13 +28,17 @@ class ProfileScreen extends StatelessWidget {
             child: Image.asset('assets/image.png'),
           ),
           const SizedBox(height: 25),
-          Text(
-            'Linh Nguyen',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Gotham',
-              fontSize: 25,
-            ),
+          Observer(
+            builder: (_) {
+              return Text(
+                '${profileStore.name}',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Gotham',
+                  fontSize: 25,
+                ),
+              );
+            },
           ),
           const SizedBox(height: 10),
           Text(

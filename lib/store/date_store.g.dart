@@ -25,8 +25,35 @@ mixin _$DateStore on _DateStoreBase, Store {
     });
   }
 
+  late final _$dateProfileAtom =
+      Atom(name: '_DateStoreBase.dateProfile', context: context);
+
+  @override
+  String get dateProfile {
+    _$dateProfileAtom.reportRead();
+    return super.dateProfile;
+  }
+
+  @override
+  set dateProfile(String value) {
+    _$dateProfileAtom.reportWrite(value, super.dateProfile, () {
+      super.dateProfile = value;
+    });
+  }
+
   late final _$_DateStoreBaseActionController =
       ActionController(name: '_DateStoreBase', context: context);
+
+  @override
+  void updateData() {
+    final _$actionInfo = _$_DateStoreBaseActionController.startAction(
+        name: '_DateStoreBase.updateData');
+    try {
+      return super.updateData();
+    } finally {
+      _$_DateStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void nextDay() {
@@ -64,7 +91,8 @@ mixin _$DateStore on _DateStoreBase, Store {
   @override
   String toString() {
     return '''
-selectedDate: ${selectedDate}
+selectedDate: ${selectedDate},
+dateProfile: ${dateProfile}
     ''';
   }
 }

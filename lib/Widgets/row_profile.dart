@@ -28,7 +28,7 @@ class RowProfile extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
 
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -54,7 +54,7 @@ class RowProfile extends StatelessWidget {
                   ),
                 ],
               ),
-              FaIcon(FontAwesomeIcons.caretRight),
+              FaIcon(Icons.chevron_right),
             ],
           ),
         ),

@@ -1,3 +1,5 @@
+import 'package:fitness_app/Widgets/container_information.dart';
+import 'package:fitness_app/Widgets/heart_information.dart';
 import 'package:fitness_app/store/goals_store_singleton.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/Screens/home.dart';
@@ -62,7 +64,7 @@ class Home extends StatelessWidget {
             Observer(
               builder: (_) {
                 return Text(
-                  goalsStore.caloriesGoal.toString(),
+                  '${goalsStore.caloriesCurrent} kcal',
                   style: TextStyle(
                     fontSize: 35,
                     fontFamily: 'Gotham',
@@ -94,7 +96,7 @@ class Home extends StatelessWidget {
                           x: 0,
                           barRods: [
                             BarChartRodData(
-                              toY: goalsStore.stepsProgress,
+                              toY: goalsStore.caloriesProgress,
                               color: Colors.red,
                               width: 17,
                             ),
@@ -104,7 +106,7 @@ class Home extends StatelessWidget {
                           x: 1,
                           barRods: [
                             BarChartRodData(
-                              toY: goalsStore.caloriesProgress,
+                              toY: goalsStore.stepsProgress,
                               color: Colors.blue,
                               width: 17,
                             ),
@@ -158,6 +160,48 @@ class Home extends StatelessWidget {
                   );
                 },
               ),
+            ),
+            const SizedBox(height: 60),
+            Text(
+              'Today\'s Information',
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 17,
+                fontFamily: 'Gotham',
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              'Today, ${DateFormat.MMMd().format(dateStore.selectedDate)}',
+              style: TextStyle(color: Colors.grey, fontSize: 13),
+            ),
+            const SizedBox(height: 30),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    ContainerInformation(
+                      title: 'Calories',
+                      iconData: FontAwesomeIcons.droplet,
+                      iconColor: Color.fromRGBO(254, 85, 48, 1),
+                      valor: goalsStore.caloriesCurrent,
+                      subText: 'Kcal',
+                    ),
+                    const SizedBox(height: 20),
+                    ContainerInformation(
+                      title: 'Steps',
+                      iconData: FontAwesomeIcons.shoePrints,
+                      iconColor: Color.fromRGBO(96, 80, 206, 1),
+                      valor: 1240,
+                      subText: 'Steps',
+                    ),
+                  ],
+                ),
+                const SizedBox(width: 20),
+                HeartInformation(),
+              ],
             ),
             const SizedBox(height: 60),
           ],

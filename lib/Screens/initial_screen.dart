@@ -13,7 +13,7 @@ class InitialScreen extends StatelessWidget {
         children: [
           Image.network(
             height: 300,
-            'https://cdn.discordapp.com/attachments/1199422661592371280/1365374052533010584/initial.png?ex=680d132d&is=680bc1ad&hm=9dcb1141efdebf2b0f7b2c9eb644fb190cea4815f78ec9b128493968cb3c24e6&',
+            'https://cdn.discordapp.com/attachments/1199422661592371280/1365374052533010584/initial.png?ex=6815a4ed&is=6814536d&hm=88aa78faf1a20a81332ff24719bb340c75a3f3200c82ad353b8a23507c65a10d&',
           ),
           Text(
             'Challenge with Friends',
@@ -31,6 +31,7 @@ class InitialScreen extends StatelessWidget {
             child: Container(
               width: double.infinity,
               height: 55,
+
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(

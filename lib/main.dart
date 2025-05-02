@@ -1,9 +1,11 @@
 import 'package:fitness_app/Screens/home_screen.dart';
 import 'package:fitness_app/Screens/initial_screen.dart';
-
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // garante que o Flutter inicializou
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:mobx/mobx.dart';
 part 'date_store.g.dart';
 
@@ -6,6 +7,14 @@ class DateStore = _DateStoreBase with _$DateStore;
 abstract class _DateStoreBase with Store {
   @observable
   DateTime selectedDate = DateTime.now();
+
+  @observable
+  String dateProfile = '';
+
+  @action
+  void updateData() {
+    dateProfile = DateFormat('MMMM dd, yyyy').format(DateTime.now());
+  }
 
   @action
   void nextDay() {

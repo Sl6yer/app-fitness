@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'goals_store.g.dart';
@@ -27,10 +28,121 @@ abstract class _GoalsStoreBase with Store {
   int stepsGoal = 1;
 
   @observable
-  int stepsCurrent = 1;
+  int stepsCurrent = 3000;
 
   @observable
-  int caloriesCurrent = 1;
+  int caloriesCurrent = 0;
+
+  @observable
+  int proteinCurrent = 0;
+
+  @observable
+  int valorTotal = 0;
+
+  @observable
+  int valor7Dias = 0;
+
+  @observable
+  int mediaSemanal = 0;
+
+  @action
+  Future<void> somarCalorias() async {
+    try {
+      QuerySnapshot querySnapshot =
+          await FirebaseFirestore.instance.collection('dados_diarios').get();
+
+      int calorias = 0;
+
+      for (var doc in querySnapshot.docs) {
+        var caloriasValor = doc['calorias'];
+
+        if (caloriasValor != null) {
+          if (caloriasValor is num) {
+            calorias += caloriasValor.toInt();
+          } else {
+            print('Valor de calorias não é numérico no documento: ${doc.id}');
+          }
+        } else {
+          print('Campo "calorias" está nulo no documento: ${doc.id}');
+        }
+      }
+
+      print('Total de calorias somadas: $calorias'); // Imprimir o total somado
+
+      valorTotal = calorias;
+    } catch (e) {
+      print('Erro ao somar as calorias: $e');
+    }
+  }
+
+  @action
+  Future<void> last7Days() async {
+    try {
+      DateTime dataSetediasAtras = DateTime.now().subtract(Duration(days: 7));
+
+      Timestamp timestampSeteDiasAtras = Timestamp.fromDate(dataSetediasAtras);
+
+      QuerySnapshot querySnapshot =
+          await FirebaseFirestore.instance
+              .collection('dados_diarios')
+              .where('data', isGreaterThanOrEqualTo: timestampSeteDiasAtras)
+              .get();
+
+      int calorias = 0;
+
+      for (var doc in querySnapshot.docs) {
+        var caloriasValor = doc['calorias'];
+
+        if (caloriasValor != null) {
+          if (caloriasValor is num) {
+            calorias += caloriasValor.toInt();
+          } else {
+            print('Valor nao é numerico');
+          }
+        } else {
+          print('Camo está nulo');
+        }
+      }
+
+      print('Total de calorias nos últimos 7 dias: $calorias');
+
+      valor7Dias = calorias;
+    } catch (e) {
+      print('Erro ao somar as calorias dos últimos 7 dias: $e');
+    }
+  }
+
+  @action
+  Future<void> setMediaSemanal() async {
+    try {
+      mediaSemanal = (valor7Dias / 7).toInt();
+    } catch (e) {
+      print('erro: $e');
+    }
+
+    return;
+  }
+
+  @action
+  void setCaloriesCurrent(int newCalories) {
+    caloriesCurrent = newCalories;
+    print(caloriesCurrent);
+  }
+
+  @action
+  void setProteinCurrent(int newProtein) {
+    proteinCurrent = newProtein;
+    print(proteinCurrent);
+  }
+
+  @observable
+  String? textField;
+
+  @action
+  void setTextField(String value) {
+    textField = value;
+    print(textField);
+  }
 
   @observable
   int waterCurrent = 1;

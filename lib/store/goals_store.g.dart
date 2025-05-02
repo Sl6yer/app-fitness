@@ -111,6 +111,86 @@ mixin _$GoalsStore on _GoalsStoreBase, Store {
     });
   }
 
+  late final _$proteinCurrentAtom =
+      Atom(name: '_GoalsStoreBase.proteinCurrent', context: context);
+
+  @override
+  int get proteinCurrent {
+    _$proteinCurrentAtom.reportRead();
+    return super.proteinCurrent;
+  }
+
+  @override
+  set proteinCurrent(int value) {
+    _$proteinCurrentAtom.reportWrite(value, super.proteinCurrent, () {
+      super.proteinCurrent = value;
+    });
+  }
+
+  late final _$valorTotalAtom =
+      Atom(name: '_GoalsStoreBase.valorTotal', context: context);
+
+  @override
+  int get valorTotal {
+    _$valorTotalAtom.reportRead();
+    return super.valorTotal;
+  }
+
+  @override
+  set valorTotal(int value) {
+    _$valorTotalAtom.reportWrite(value, super.valorTotal, () {
+      super.valorTotal = value;
+    });
+  }
+
+  late final _$valor7DiasAtom =
+      Atom(name: '_GoalsStoreBase.valor7Dias', context: context);
+
+  @override
+  int get valor7Dias {
+    _$valor7DiasAtom.reportRead();
+    return super.valor7Dias;
+  }
+
+  @override
+  set valor7Dias(int value) {
+    _$valor7DiasAtom.reportWrite(value, super.valor7Dias, () {
+      super.valor7Dias = value;
+    });
+  }
+
+  late final _$mediaSemanalAtom =
+      Atom(name: '_GoalsStoreBase.mediaSemanal', context: context);
+
+  @override
+  int get mediaSemanal {
+    _$mediaSemanalAtom.reportRead();
+    return super.mediaSemanal;
+  }
+
+  @override
+  set mediaSemanal(int value) {
+    _$mediaSemanalAtom.reportWrite(value, super.mediaSemanal, () {
+      super.mediaSemanal = value;
+    });
+  }
+
+  late final _$textFieldAtom =
+      Atom(name: '_GoalsStoreBase.textField', context: context);
+
+  @override
+  String? get textField {
+    _$textFieldAtom.reportRead();
+    return super.textField;
+  }
+
+  @override
+  set textField(String? value) {
+    _$textFieldAtom.reportWrite(value, super.textField, () {
+      super.textField = value;
+    });
+  }
+
   late final _$waterCurrentAtom =
       Atom(name: '_GoalsStoreBase.waterCurrent', context: context);
 
@@ -143,6 +223,30 @@ mixin _$GoalsStore on _GoalsStoreBase, Store {
     });
   }
 
+  late final _$somarCaloriasAsyncAction =
+      AsyncAction('_GoalsStoreBase.somarCalorias', context: context);
+
+  @override
+  Future<void> somarCalorias() {
+    return _$somarCaloriasAsyncAction.run(() => super.somarCalorias());
+  }
+
+  late final _$last7DaysAsyncAction =
+      AsyncAction('_GoalsStoreBase.last7Days', context: context);
+
+  @override
+  Future<void> last7Days() {
+    return _$last7DaysAsyncAction.run(() => super.last7Days());
+  }
+
+  late final _$setMediaSemanalAsyncAction =
+      AsyncAction('_GoalsStoreBase.setMediaSemanal', context: context);
+
+  @override
+  Future<void> setMediaSemanal() {
+    return _$setMediaSemanalAsyncAction.run(() => super.setMediaSemanal());
+  }
+
   late final _$_GoalsStoreBaseActionController =
       ActionController(name: '_GoalsStoreBase', context: context);
 
@@ -163,6 +267,39 @@ mixin _$GoalsStore on _GoalsStoreBase, Store {
         name: '_GoalsStoreBase.setProtein');
     try {
       return super.setProtein(newGoal);
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setCaloriesCurrent(int newCalories) {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setCaloriesCurrent');
+    try {
+      return super.setCaloriesCurrent(newCalories);
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setProteinCurrent(int newProtein) {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setProteinCurrent');
+    try {
+      return super.setProteinCurrent(newProtein);
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setTextField(String value) {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setTextField');
+    try {
+      return super.setTextField(value);
     } finally {
       _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -191,6 +328,138 @@ mixin _$GoalsStore on _GoalsStoreBase, Store {
   }
 
   @override
+  void setCaloriesGoals1k() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setCaloriesGoals1k');
+    try {
+      return super.setCaloriesGoals1k();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setCaloriesGoals18k() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setCaloriesGoals18k');
+    try {
+      return super.setCaloriesGoals18k();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setCaloriesGoals22k() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setCaloriesGoals22k');
+    try {
+      return super.setCaloriesGoals22k();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setCaloriesGoals25k() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setCaloriesGoals25k');
+    try {
+      return super.setCaloriesGoals25k();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setStepsGoals4k() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setStepsGoals4k');
+    try {
+      return super.setStepsGoals4k();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setStepsGoals6k() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setStepsGoals6k');
+    try {
+      return super.setStepsGoals6k();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setStepsGoals8k() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setStepsGoals8k');
+    try {
+      return super.setStepsGoals8k();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setStepsGoals10k() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setStepsGoals10k');
+    try {
+      return super.setStepsGoals10k();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setWaterGoals15() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setWaterGoals15');
+    try {
+      return super.setWaterGoals15();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setWaterGoals2() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setWaterGoals2');
+    try {
+      return super.setWaterGoals2();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setWaterGoals25() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setWaterGoals25');
+    try {
+      return super.setWaterGoals25();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setWaterGoals3() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setWaterGoals3');
+    try {
+      return super.setWaterGoals3();
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 caloriesGoal: ${caloriesGoal},
@@ -198,6 +467,11 @@ proteinGoal: ${proteinGoal},
 stepsGoal: ${stepsGoal},
 stepsCurrent: ${stepsCurrent},
 caloriesCurrent: ${caloriesCurrent},
+proteinCurrent: ${proteinCurrent},
+valorTotal: ${valorTotal},
+valor7Dias: ${valor7Dias},
+mediaSemanal: ${mediaSemanal},
+textField: ${textField},
 waterCurrent: ${waterCurrent},
 waterGoal: ${waterGoal},
 stepsProgress: ${stepsProgress},
