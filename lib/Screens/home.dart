@@ -1,6 +1,7 @@
 import 'package:fitness_app/Widgets/container_information.dart';
 import 'package:fitness_app/Widgets/heart_information.dart';
 import 'package:fitness_app/store/goals_store_singleton.dart';
+import 'package:fitness_app/store/profile_store_singleton.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/Screens/home.dart';
 import 'package:fitness_app/Widgets/Date_Navigator.dart';
@@ -35,10 +36,12 @@ class Home extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CircleAvatar(
-                        radius: 50,
-                        backgroundColor: Colors.white,
-                        child: Image.asset('assets/image.png'),
+                      Observer(
+                        builder: (_) {
+                          return Image.asset(
+                            'assets/image${profileStore.id}.png',
+                          );
+                        },
                       ),
                     ],
                   ),

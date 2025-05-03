@@ -1,3 +1,4 @@
+import 'package:fitness_app/Widgets/avatar_profile.dart';
 import 'package:mobx/mobx.dart';
 part 'profile_store.g.dart';
 
@@ -11,5 +12,14 @@ abstract class _ProfileStoreBase with Store {
   void setName(String newName) {
     name = newName;
     print(name);
+  }
+
+  @observable
+  String id = '2';
+
+  @action
+  void setId(String newId) {
+    id = newId;
+    print('id da imagem alterada: $id');
   }
 }

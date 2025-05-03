@@ -1,3 +1,4 @@
+import 'package:fitness_app/Widgets/avatar_profile.dart';
 import 'package:fitness_app/Widgets/textField_name.dart';
 import 'package:fitness_app/store/date_store.dart';
 import 'package:fitness_app/store/profile_store.dart';
@@ -36,22 +37,64 @@ class EditProfileScreen extends StatelessWidget {
                         context: context,
                         builder:
                             (context) => Container(
-                              height: MediaQuery.of(context).size.height * 0.35,
+                              height: MediaQuery.of(context).size.height * 0.25,
                               width: MediaQuery.of(context).size.width * 1,
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
                                     'Selecione uma imagem',
-                                    style: TextStyle(fontSize: 20),
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
-                                  Row(
-                                    children: [
-                                      CircleAvatar(
-                                        radius: 50,
-                                        child: Image.asset('assets/image1.png'),
-                                      ),
-                                    ],
+                                  SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      children: [
+                                        AvatarProfile(
+                                          id: '1',
+                                          avatar: 'assets/avatar1.png',
+                                        ),
+                                        AvatarProfile(
+                                          id: '2',
+                                          avatar: 'assets/image2.png',
+                                        ),
+                                        AvatarProfile(
+                                          id: '3',
+                                          avatar: 'assets/image3.png',
+                                        ),
+                                        AvatarProfile(
+                                          id: '4',
+                                          avatar: 'assets/image4.png',
+                                        ),
+                                        AvatarProfile(
+                                          id: '5',
+                                          avatar: 'assets/image5.png',
+                                        ),
+                                        AvatarProfile(
+                                          id: '6',
+                                          avatar: 'assets/image6.png',
+                                        ),
+                                        AvatarProfile(
+                                          id: '7',
+                                          avatar: 'assets/image7.png',
+                                        ),
+                                        AvatarProfile(
+                                          id: '8',
+                                          avatar: 'assets/image8.png',
+                                        ),
+                                        AvatarProfile(
+                                          id: '9',
+                                          avatar: 'assets/image9.png',
+                                        ),
+                                      ],
+                                    ),
                                   ),
+                                  const SizedBox(height: 10),
                                 ],
                               ),
                             ),
@@ -59,7 +102,17 @@ class EditProfileScreen extends StatelessWidget {
                     },
                     child: CircleAvatar(
                       radius: 50,
-                      child: Image.asset('assets/image.png'),
+                      backgroundColor: Colors.transparent,
+                      child: Observer(
+                        builder: (_) {
+                          print(
+                            'Reconstruindo avatar com ID: ${profileStore.id}',
+                          );
+                          return Image.asset(
+                            'assets/image${profileStore.id}.png',
+                          );
+                        },
+                      ),
                     ),
                   ),
                   Positioned(

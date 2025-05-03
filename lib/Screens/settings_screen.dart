@@ -59,7 +59,13 @@ class SettingsScreen extends StatelessWidget {
                           child: Center(
                             child: CircleAvatar(
                               radius: 50,
-                              child: Image.asset('assets/image.png'),
+                              child: Observer(
+                                builder: (_) {
+                                  return Image.asset(
+                                    'assets/image${profileStore.id}.png',
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ),
