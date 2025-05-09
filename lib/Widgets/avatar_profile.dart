@@ -13,7 +13,7 @@ class AvatarProfile extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: GestureDetector(
         onTap: () {
-          profileStore.setId(id);
+          profileStore.setSelectedId(id);
           Navigator.of(context).pop();
         },
         child: CircleAvatar(radius: 40, child: Image.asset(avatar)),

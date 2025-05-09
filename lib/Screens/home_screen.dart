@@ -1,14 +1,20 @@
+import 'package:fitness_app/Screens/barcode_scanner_screen.dart';
+import 'package:fitness_app/Screens/body_screen.dart';
 import 'package:fitness_app/Screens/calories_screen.dart';
 import 'package:fitness_app/Screens/home.dart';
+import 'package:fitness_app/Screens/logs_screen.dart';
 import 'package:fitness_app/Screens/profile_screen.dart';
+import 'package:fitness_app/Screens/set_water_screen.dart';
 import 'package:fitness_app/Widgets/Date_Navigator.dart';
 import 'package:fitness_app/Widgets/dados_widget.dart';
 import 'package:fitness_app/Widgets/modal_home.dart';
+import 'package:fitness_app/Widgets/second_modal_home.dart';
 import 'package:fitness_app/Widgets/topCurve_clipper.dart';
 import 'package:fitness_app/store/bottom_nav_store.dart';
 import 'package:fitness_app/store/date_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -22,7 +28,7 @@ class HomeScreen extends StatelessWidget {
   final List<Widget> pages = [
     Home(),
     const Center(child: Text('Favorites')),
-    const Center(child: Text('History')),
+    LogsScreen(),
     ProfileScreen(),
   ];
 
@@ -69,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                     SizedBox(width: 40), // espaço para o botão central
                     IconButton(
                       icon: Icon(
-                        Icons.access_time,
+                        Icons.qr_code,
                         color:
                             navStore.selectedIndex == 2
                                 ? Color.fromRGBO(254, 85, 48, 1)
@@ -122,44 +128,94 @@ class HomeScreen extends StatelessWidget {
                           padding: EdgeInsets.all(20),
                           child: Column(
                             children: [
-                              ModalHome(
-                                iconData: FontAwesomeIcons.utensils,
-                                title: 'Calories Tracker',
-                                subTitle: 'Add consumed calories quickly.',
-                                iconSize: 35,
-                                onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (_) => CaloriesScreen(),
+                              Row(
+                                children: [
+                                  SecondModalHome(
+                                    title: 'Track Food',
+                                    iconData: FontAwesomeIcons.magnifyingGlass,
+                                    bgContainerColor: Color.fromRGBO(
+                                      254,
+                                      85,
+                                      48,
+                                      1,
                                     ),
-                                  );
-                                },
+                                    ontap: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (_) => CaloriesScreen(),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  SecondModalHome(
+                                    title: 'Barcode Scanner',
+                                    iconData: FontAwesomeIcons.barcode,
+                                    bgContainerColor: Colors.pink,
+                                    ontap: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder:
+                                              (_) => BarcodeScannerScreen(),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
                               ),
-                              ModalHome(
-                                iconData: FontAwesomeIcons.users,
-                                title: 'Friends',
-                                subTitle: 'make friends and have fun.',
-                                iconSize: 28,
-                                onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (_) => CaloriesScreen(),
-                                    ),
-                                  );
-                                },
-                              ),
-                              ModalHome(
-                                iconData: FontAwesomeIcons.moon,
-                                title: 'Sleep Monitor',
-                                subTitle: 'Find your perfect sleep balance.',
-                                iconSize: 45,
-                                onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (_) => CaloriesScreen(),
-                                    ),
-                                  );
-                                },
+                              Card(
+                                elevation: 0,
+                                color: Color.fromRGBO(228, 225, 225, 0.3),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Column(
+                                    children: [
+                                      ModalHome(
+                                        iconData: FontAwesomeIcons.glassWater,
+                                        title: 'Water',
+                                        iconColor: Colors.blue,
+                                        ontap: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: (_) => SetWaterScreen(),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                          vertical: 8,
+                                        ),
+                                        child: Divider(color: Colors.grey[400]),
+                                      ),
+                                      ModalHome(
+                                        iconData: FontAwesomeIcons.weightScale,
+                                        title: 'Weight',
+                                        iconColor: Colors.lightGreen,
+                                        ontap: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: (_) => BodyScreen(),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                          vertical: 8,
+                                        ),
+                                        child: Divider(color: Colors.grey[400]),
+                                      ),
+                                      ModalHome(
+                                        iconData: FontAwesomeIcons.fire,
+                                        title: 'Exercise',
+                                        iconColor: Colors.orange,
+                                        ontap: () {},
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ],
                           ),

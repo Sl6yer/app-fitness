@@ -5,6 +5,7 @@ class FirebaseService {
   static Future<void> salvarOuAtualizarDados(
     double calorias,
     double proteinas,
+    double agua,
   ) async {
     try {
       final dataHoje = DateTime.now();
@@ -21,6 +22,7 @@ class FirebaseService {
         await docRef.update({
           'calorias': calorias,
           'proteinas': proteinas,
+          'agua': agua,
           'hora_atualização': Timestamp.now(),
         });
         print('Dados atualizado com sucesso');
@@ -28,6 +30,7 @@ class FirebaseService {
         await docRef.set({
           'calorias': calorias,
           'proteinas': proteinas,
+          'agua': agua,
           'data': Timestamp.now(),
         });
         print('Dados salvos com sucesso!');

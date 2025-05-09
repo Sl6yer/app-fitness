@@ -13,7 +13,7 @@ class InitialScreen extends StatelessWidget {
         children: [
           Image.network(
             height: 300,
-            'https://cdn.discordapp.com/attachments/1199422661592371280/1365374052533010584/initial.png?ex=68179f2d&is=68164dad&hm=6d6653e8b4a7e43d9f857e8ac525a52eb8189a3062ff9c7a2a0c7c4e48c50b48&',
+            'https://cdn.discordapp.com/attachments/1199422661592371280/1365374052533010584/initial.png?ex=681f882d&is=681e36ad&hm=e240dfa6e1aa8a82f939349f308cc81566beb9422bcba2d6fe61db9951458682&',
           ),
           Text(
             'Challenge with Friends',

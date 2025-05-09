@@ -15,11 +15,24 @@ abstract class _ProfileStoreBase with Store {
   }
 
   @observable
+  String? selectedId;
+
+  @observable
   String id = '2';
 
   @action
-  void setId(String newId) {
-    id = newId;
+  void setSelectedId(String newSelectedId) {
+    selectedId = newSelectedId;
+    print('id selecionado é: $selectedId');
+  }
+
+  @action
+  void setId() {
+    if (selectedId != null) {
+      id = selectedId.toString();
+    } else {
+      print('id é nulo: $selectedId');
+    }
     print('id da imagem alterada: $id');
   }
 }

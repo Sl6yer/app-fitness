@@ -37,6 +37,12 @@ abstract class _GoalsStoreBase with Store {
   int proteinCurrent = 0;
 
   @observable
+  int waterGlassCurrent = 0;
+
+  @observable
+  int selectedWaterGlass = 0;
+
+  @observable
   int valorTotal = 0;
 
   @observable
@@ -126,13 +132,24 @@ abstract class _GoalsStoreBase with Store {
   @action
   void setCaloriesCurrent(int newCalories) {
     caloriesCurrent = newCalories;
-    print(caloriesCurrent);
   }
 
   @action
   void setProteinCurrent(int newProtein) {
     proteinCurrent = newProtein;
-    print(proteinCurrent);
+  }
+
+  @action
+  void setSelectedWater(int selectedGlass) {
+    selectedWaterGlass += selectedGlass;
+  }
+
+  @action
+  void setWaterCurrent() {
+    waterGlassCurrent = selectedWaterGlass;
+    print(
+      'Valor atual da agua: $waterGlassCurrent, Valor somado: $selectedWaterGlass',
+    );
   }
 
   @observable
@@ -141,7 +158,6 @@ abstract class _GoalsStoreBase with Store {
   @action
   void setTextField(String value) {
     textField = value;
-    print(textField);
   }
 
   @observable
@@ -150,7 +166,6 @@ abstract class _GoalsStoreBase with Store {
   @action
   void setSteps(int newGoal) {
     stepsGoal = newGoal;
-    print(stepsGoal);
   }
 
   @observable
@@ -159,7 +174,6 @@ abstract class _GoalsStoreBase with Store {
   @action
   void setWater(int newGoal) {
     waterGoal = newGoal;
-    print(waterGoal);
   }
 
   @computed

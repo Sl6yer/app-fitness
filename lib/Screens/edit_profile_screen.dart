@@ -1,3 +1,4 @@
+import 'package:fitness_app/Screens/home_screen.dart';
 import 'package:fitness_app/Widgets/avatar_profile.dart';
 import 'package:fitness_app/Widgets/textField_name.dart';
 import 'package:fitness_app/store/date_store.dart';
@@ -100,19 +101,17 @@ class EditProfileScreen extends StatelessWidget {
                             ),
                       );
                     },
-                    child: CircleAvatar(
-                      radius: 50,
-                      backgroundColor: Colors.transparent,
-                      child: Observer(
-                        builder: (_) {
-                          print(
-                            'Reconstruindo avatar com ID: ${profileStore.id}',
-                          );
-                          return Image.asset(
+                    child: Observer(
+                      builder: (_) {
+                        print('imagem alterada');
+                        return CircleAvatar(
+                          radius: 50,
+                          backgroundColor: Colors.transparent,
+                          child: Image.asset(
                             'assets/image${profileStore.id}.png',
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Positioned(
@@ -212,6 +211,12 @@ class EditProfileScreen extends StatelessWidget {
                               } else {
                                 print('Nome invalido');
                               }
+
+                              profileStore.setId();
+
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (_) => HomeScreen()),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color.fromRGBO(

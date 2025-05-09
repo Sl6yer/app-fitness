@@ -1,5 +1,6 @@
 import 'package:fitness_app/Widgets/container_information.dart';
 import 'package:fitness_app/Widgets/heart_information.dart';
+import 'package:fitness_app/Widgets/water_information.dart';
 import 'package:fitness_app/store/goals_store_singleton.dart';
 import 'package:fitness_app/store/profile_store_singleton.dart';
 import 'package:flutter/material.dart';
@@ -179,31 +180,43 @@ class Home extends StatelessWidget {
               style: TextStyle(color: Colors.grey, fontSize: 13),
             ),
             const SizedBox(height: 30),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+            Column(
               children: [
-                Column(
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ContainerInformation(
-                      title: 'Calories',
-                      iconData: FontAwesomeIcons.droplet,
-                      iconColor: Color.fromRGBO(254, 85, 48, 1),
-                      valor: goalsStore.caloriesCurrent,
-                      subText: 'Kcal',
+                    Column(
+                      children: [
+                        ContainerInformation(
+                          title: 'Calories',
+                          iconData: FontAwesomeIcons.droplet,
+                          iconColor: Color.fromRGBO(254, 85, 48, 1),
+                          valor: goalsStore.caloriesCurrent,
+                          subText: 'Kcal',
+                        ),
+                        const SizedBox(height: 20),
+                        ContainerInformation(
+                          title: 'Steps',
+                          iconData: FontAwesomeIcons.shoePrints,
+                          iconColor: Color.fromRGBO(96, 80, 206, 1),
+                          valor: 1240,
+                          subText: 'Steps',
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 20),
-                    ContainerInformation(
-                      title: 'Steps',
-                      iconData: FontAwesomeIcons.shoePrints,
-                      iconColor: Color.fromRGBO(96, 80, 206, 1),
-                      valor: 1240,
-                      subText: 'Steps',
-                    ),
+                    const SizedBox(width: 20),
+                    HeartInformation(),
                   ],
                 ),
-                const SizedBox(width: 20),
-                HeartInformation(),
+                const SizedBox(height: 20),
+                WaterInformation(
+                  title: 'Water',
+                  iconData: FontAwesomeIcons.glassWater,
+                  subText: 'Liters',
+                  iconColor: Colors.blue,
+                  valor: 3,
+                ),
               ],
             ),
             const SizedBox(height: 60),

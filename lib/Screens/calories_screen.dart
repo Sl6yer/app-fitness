@@ -180,6 +180,7 @@ class CaloriesScreen extends StatelessWidget {
                       await FirebaseService.salvarOuAtualizarDados(
                         caloriesInt.toDouble(),
                         proteinInt.toDouble(),
+                        goalsStore.waterGlassCurrent.toDouble(),
                       );
                     },
                     style: ElevatedButton.styleFrom(
