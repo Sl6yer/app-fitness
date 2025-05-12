@@ -1,5 +1,6 @@
 import 'package:fitness_app/Widgets/water_img.dart';
 import 'package:fitness_app/services/firebase_service.dart';
+import 'package:fitness_app/store/firebase/daily_calories_store.dart';
 import 'package:fitness_app/store/goals_store_singleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -33,21 +34,21 @@ class SetWaterScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
+                    Text(
+                      'Total Volume',
+                      style: GoogleFonts.poppins(fontSize: 17),
+                    ),
                     Observer(
                       builder: (_) {
                         return Text(
-                          'Total Volume',
-                          style: GoogleFonts.poppins(fontSize: 17),
+                          '${goalsStore.selectedWaterGlass} Glass',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w700,
+                            color: Colors.blue,
+                            fontSize: 30,
+                          ),
                         );
                       },
-                    ),
-                    Text(
-                      '${goalsStore.waterGlassCurrent} Glass',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w700,
-                        color: Colors.blue,
-                        fontSize: 30,
-                      ),
                     ),
                   ],
                 ),
@@ -108,12 +109,30 @@ class SetWaterScreen extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () async {
                       if (goalsStore.selectedWaterGlass == 0) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Please select a water glass',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
                       } else {
                         goalsStore.setWaterCurrent();
                         await FirebaseService.salvarOuAtualizarDados(
                           goalsStore.caloriesCurrent.toDouble(),
                           goalsStore.proteinCurrent.toDouble(),
                           goalsStore.waterGlassCurrent.toDouble(),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Water goal saved successfully',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            backgroundColor: Colors.blue,
+                          ),
                         );
                       }
                     },

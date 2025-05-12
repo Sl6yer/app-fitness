@@ -127,6 +127,38 @@ mixin _$GoalsStore on _GoalsStoreBase, Store {
     });
   }
 
+  late final _$waterGlassCurrentAtom =
+      Atom(name: '_GoalsStoreBase.waterGlassCurrent', context: context);
+
+  @override
+  int get waterGlassCurrent {
+    _$waterGlassCurrentAtom.reportRead();
+    return super.waterGlassCurrent;
+  }
+
+  @override
+  set waterGlassCurrent(int value) {
+    _$waterGlassCurrentAtom.reportWrite(value, super.waterGlassCurrent, () {
+      super.waterGlassCurrent = value;
+    });
+  }
+
+  late final _$selectedWaterGlassAtom =
+      Atom(name: '_GoalsStoreBase.selectedWaterGlass', context: context);
+
+  @override
+  int get selectedWaterGlass {
+    _$selectedWaterGlassAtom.reportRead();
+    return super.selectedWaterGlass;
+  }
+
+  @override
+  set selectedWaterGlass(int value) {
+    _$selectedWaterGlassAtom.reportWrite(value, super.selectedWaterGlass, () {
+      super.selectedWaterGlass = value;
+    });
+  }
+
   late final _$valorTotalAtom =
       Atom(name: '_GoalsStoreBase.valorTotal', context: context);
 
@@ -289,6 +321,28 @@ mixin _$GoalsStore on _GoalsStoreBase, Store {
         name: '_GoalsStoreBase.setProteinCurrent');
     try {
       return super.setProteinCurrent(newProtein);
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setSelectedWater(int selectedGlass) {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setSelectedWater');
+    try {
+      return super.setSelectedWater(selectedGlass);
+    } finally {
+      _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setWaterCurrent() {
+    final _$actionInfo = _$_GoalsStoreBaseActionController.startAction(
+        name: '_GoalsStoreBase.setWaterCurrent');
+    try {
+      return super.setWaterCurrent();
     } finally {
       _$_GoalsStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -468,6 +522,8 @@ stepsGoal: ${stepsGoal},
 stepsCurrent: ${stepsCurrent},
 caloriesCurrent: ${caloriesCurrent},
 proteinCurrent: ${proteinCurrent},
+waterGlassCurrent: ${waterGlassCurrent},
+selectedWaterGlass: ${selectedWaterGlass},
 valorTotal: ${valorTotal},
 valor7Dias: ${valor7Dias},
 mediaSemanal: ${mediaSemanal},

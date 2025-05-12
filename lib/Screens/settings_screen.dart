@@ -1,6 +1,6 @@
 import 'package:fitness_app/Screens/edit_profile_screen.dart';
 import 'package:fitness_app/Widgets/row_profile.dart';
-import 'package:fitness_app/store/date_store.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -8,8 +8,6 @@ import 'package:fitness_app/store/profile_store_singleton.dart';
 
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({super.key});
-
-  final DateStore store = DateStore();
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +34,9 @@ class SettingsScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: InkWell(
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => EditProfileScreen(store: store),
-                  ),
-                );
-                store.updateData();
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (_) => EditProfileScreen()));
               },
               borderRadius: BorderRadius.circular(12),
 

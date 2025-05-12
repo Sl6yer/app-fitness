@@ -146,10 +146,8 @@ abstract class _GoalsStoreBase with Store {
 
   @action
   void setWaterCurrent() {
-    waterGlassCurrent = selectedWaterGlass;
-    print(
-      'Valor atual da agua: $waterGlassCurrent, Valor somado: $selectedWaterGlass',
-    );
+    waterGlassCurrent += selectedWaterGlass;
+    selectedWaterGlass = 0;
   }
 
   @observable

@@ -9,6 +9,22 @@ part of 'barcode_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$BarCodeStore on _BarCodeStoreBase, Store {
+  late final _$logsAtom =
+      Atom(name: '_BarCodeStoreBase.logs', context: context);
+
+  @override
+  ObservableList<NutritionLog> get logs {
+    _$logsAtom.reportRead();
+    return super.logs;
+  }
+
+  @override
+  set logs(ObservableList<NutritionLog> value) {
+    _$logsAtom.reportWrite(value, super.logs, () {
+      super.logs = value;
+    });
+  }
+
   late final _$isScanningAtom =
       Atom(name: '_BarCodeStoreBase.isScanning', context: context);
 
@@ -142,44 +158,55 @@ mixin _$BarCodeStore on _BarCodeStoreBase, Store {
   }
 
   @override
-  void setProductName(String productName) {
+  void setProductName(String newproductName) {
     final _$actionInfo = _$_BarCodeStoreBaseActionController.startAction(
         name: '_BarCodeStoreBase.setProductName');
     try {
-      return super.setProductName(productName);
+      return super.setProductName(newproductName);
     } finally {
       _$_BarCodeStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setProtein(int protein) {
+  void setProtein(int newProtein) {
     final _$actionInfo = _$_BarCodeStoreBaseActionController.startAction(
         name: '_BarCodeStoreBase.setProtein');
     try {
-      return super.setProtein(protein);
+      return super.setProtein(newProtein);
     } finally {
       _$_BarCodeStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setCarbs(int carbs) {
+  void setCarbs(int newCarbs) {
     final _$actionInfo = _$_BarCodeStoreBaseActionController.startAction(
         name: '_BarCodeStoreBase.setCarbs');
     try {
-      return super.setCarbs(carbs);
+      return super.setCarbs(newCarbs);
     } finally {
       _$_BarCodeStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setCalories(int calories) {
+  void setCalories(int newCalories) {
     final _$actionInfo = _$_BarCodeStoreBaseActionController.startAction(
         name: '_BarCodeStoreBase.setCalories');
     try {
-      return super.setCalories(calories);
+      return super.setCalories(newCalories);
+    } finally {
+      _$_BarCodeStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void logProduct() {
+    final _$actionInfo = _$_BarCodeStoreBaseActionController.startAction(
+        name: '_BarCodeStoreBase.logProduct');
+    try {
+      return super.logProduct();
     } finally {
       _$_BarCodeStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -188,6 +215,7 @@ mixin _$BarCodeStore on _BarCodeStoreBase, Store {
   @override
   String toString() {
     return '''
+logs: ${logs},
 isScanning: ${isScanning},
 scannedCode: ${scannedCode},
 productName: ${productName},

@@ -1,3 +1,4 @@
+import 'package:fitness_app/store/firebase/daily_calories_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,14 +11,14 @@ class WaterInformation extends StatelessWidget {
     required this.iconData,
     required this.subText,
     required this.iconColor,
-    required this.valor,
+    required this.store,
   });
 
   final String title;
   final IconData iconData;
   final Color iconColor;
   final String subText;
-  final int valor;
+  final DailyCaloriesStore store;
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +94,7 @@ class WaterInformation extends StatelessWidget {
                   Observer(
                     builder: (_) {
                       return Text(
-                        valor.toString(),
+                        store.dailyWater.toString(),
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,

@@ -1,7 +1,7 @@
 import 'package:fitness_app/Screens/home_screen.dart';
 import 'package:fitness_app/Widgets/avatar_profile.dart';
 import 'package:fitness_app/Widgets/textField_name.dart';
-import 'package:fitness_app/store/date_store.dart';
+
 import 'package:fitness_app/store/profile_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -10,9 +10,8 @@ import 'package:intl/intl.dart';
 import 'package:fitness_app/store/profile_store_singleton.dart';
 
 class EditProfileScreen extends StatelessWidget {
-  EditProfileScreen({super.key, required this.store});
+  EditProfileScreen({super.key});
 
-  final DateStore store;
   final TextEditingController nameController = TextEditingController();
 
   @override
@@ -173,7 +172,6 @@ class EditProfileScreen extends StatelessWidget {
                         TextField(
                           cursorColor: const Color.fromRGBO(254, 85, 48, 1),
                           decoration: InputDecoration(
-                            labelText: store.dateProfile,
                             labelStyle: TextStyle(fontWeight: FontWeight.w600),
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             enabledBorder: OutlineInputBorder(
