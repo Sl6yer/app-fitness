@@ -1,16 +1,18 @@
-import 'package:fitness_app/Screens/barcode_scanner_screen.dart';
-import 'package:fitness_app/Screens/body_screen.dart';
-import 'package:fitness_app/Screens/calories_screen.dart';
-import 'package:fitness_app/Screens/home.dart';
-import 'package:fitness_app/Screens/logs_screen.dart';
-import 'package:fitness_app/Screens/profile_screen.dart';
-import 'package:fitness_app/Screens/set_water_screen.dart';
+import 'package:fitness_app/Screens/barcode/barcode_scanner_screen.dart';
+import 'package:fitness_app/Screens/body/body_screen.dart';
+import 'package:fitness_app/Screens/food/food_screen.dart';
+import 'package:fitness_app/Screens/others/calories_screen.dart';
+import 'package:fitness_app/Screens/home/home.dart';
+
+import 'package:fitness_app/Screens/others/logs_screen.dart';
+import 'package:fitness_app/Screens/profile/profile_screen.dart';
+import 'package:fitness_app/Screens/others/set_water_screen.dart';
 import 'package:fitness_app/Widgets/Date_Navigator.dart';
 
 import 'package:fitness_app/Widgets/modal_home.dart';
 import 'package:fitness_app/Widgets/second_modal_home.dart';
 import 'package:fitness_app/Widgets/topCurve_clipper.dart';
-import 'package:fitness_app/store/bottom_nav_store.dart';
+import 'package:fitness_app/store/others/bottom_nav_store.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -26,7 +28,7 @@ class HomeScreen extends StatelessWidget {
 
   final List<Widget> pages = [
     Home(),
-    const Center(child: Text('Favorites')),
+    FoodSearchScreen(),
     LogsScreen(),
     ProfileScreen(),
   ];

@@ -1,9 +1,9 @@
-import 'package:fitness_app/Screens/home_screen.dart';
+import 'package:fitness_app/Screens/goals/water_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:fitness_app/store/goals_store_singleton.dart';
+import 'package:fitness_app/store/goals/goals_store_singleton.dart';
 
-class WaterScreen extends StatelessWidget {
-  const WaterScreen({super.key});
+class StepsScreen extends StatelessWidget {
+  const StepsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class WaterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'What is your daily \nwater goal?',
+              'What is your daily \nsteps goal?',
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -28,10 +28,10 @@ class WaterScreen extends StatelessWidget {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  goalsStore.setWaterGoals15();
-                  Navigator.of(
-                    context,
-                  ).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+                  goalsStore.setStepsGoals4k();
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => WaterScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -39,10 +39,7 @@ class WaterScreen extends StatelessWidget {
                   ),
                   backgroundColor: Color.fromRGBO(255, 125, 125, 1),
                 ),
-                child: Text(
-                  '1,5 Liters',
-                  style: TextStyle(color: Colors.white),
-                ),
+                child: Text('4k Steps', style: TextStyle(color: Colors.white)),
               ),
             ),
             const SizedBox(height: 20),
@@ -51,10 +48,10 @@ class WaterScreen extends StatelessWidget {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  goalsStore.setWaterGoals2();
-                  Navigator.of(
-                    context,
-                  ).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+                  goalsStore.setStepsGoals6k();
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => WaterScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -62,10 +59,7 @@ class WaterScreen extends StatelessWidget {
                   ),
                   backgroundColor: Color.fromRGBO(105, 224, 199, 1),
                 ),
-                child: Text(
-                  '2,0 Liters',
-                  style: TextStyle(color: Colors.white),
-                ),
+                child: Text('6k Steps', style: TextStyle(color: Colors.white)),
               ),
             ),
             const SizedBox(height: 20),
@@ -74,10 +68,10 @@ class WaterScreen extends StatelessWidget {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  goalsStore.setWaterGoals25();
-                  Navigator.of(
-                    context,
-                  ).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+                  goalsStore.setStepsGoals8k();
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => WaterScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -85,10 +79,7 @@ class WaterScreen extends StatelessWidget {
                   ),
                   backgroundColor: Color.fromRGBO(138, 36, 255, 1),
                 ),
-                child: Text(
-                  '2,5 Liters',
-                  style: TextStyle(color: Colors.white),
-                ),
+                child: Text('8k Steps', style: TextStyle(color: Colors.white)),
               ),
             ),
             const SizedBox(height: 20),
@@ -97,10 +88,10 @@ class WaterScreen extends StatelessWidget {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  goalsStore.setWaterGoals3();
-                  Navigator.of(
-                    context,
-                  ).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+                  goalsStore.setStepsGoals10k();
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => WaterScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -108,10 +99,7 @@ class WaterScreen extends StatelessWidget {
                   ),
                   backgroundColor: Color.fromRGBO(101, 207, 88, 1),
                 ),
-                child: Text(
-                  '3,0 Liters',
-                  style: TextStyle(color: Colors.white),
-                ),
+                child: Text('10k Steps', style: TextStyle(color: Colors.white)),
               ),
             ),
           ],

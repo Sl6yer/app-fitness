@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fitness_app/store/goals_store.dart';
+import 'package:fitness_app/store/goals/goals_store.dart';
 
 class GoalsProfile extends StatefulWidget {
   const GoalsProfile({

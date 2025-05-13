@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:fitness_app/Screens/result_barcode.dart';
-import 'package:fitness_app/store/barcode_store.dart';
+import 'package:fitness_app/Screens/barcode/result_barcode.dart';
+import 'package:fitness_app/store/barcode/barcode_store.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:http/http.dart' as http;
-import 'package:fitness_app/store/barcode_store_singleton.dart';
+import 'package:fitness_app/store/barcode/barcode_store_singleton.dart';
 
 class BarcodeScannerScreen extends StatelessWidget {
   BarcodeScannerScreen({super.key});

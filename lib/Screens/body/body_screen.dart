@@ -1,6 +1,6 @@
 import 'package:fitness_app/Widgets/MyBody_Stat.dart';
 import 'package:fitness_app/Widgets/weight_history.dart';
-import 'package:fitness_app/store/body_store.dart';
+import 'package:fitness_app/store/body/body_store.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';

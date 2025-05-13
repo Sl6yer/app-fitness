@@ -1,11 +1,12 @@
-import 'package:fitness_app/Screens/body_screen.dart';
-import 'package:fitness_app/Screens/goals_screen.dart';
-import 'package:fitness_app/Screens/settings_screen.dart';
+import 'package:fitness_app/Screens/body/body_screen.dart';
+import 'package:fitness_app/Screens/goals/goals_screen.dart';
+import 'package:fitness_app/Screens/others/settings_screen.dart';
 import 'package:fitness_app/Widgets/row_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fitness_app/store/profile_store_singleton.dart';
+import 'package:fitness_app/store/profile/profile_store_singleton.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -14,7 +15,10 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Account', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(
+          'Account',
+          style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -25,16 +29,16 @@ class ProfileScreen extends StatelessWidget {
           CircleAvatar(
             radius: 60,
             backgroundColor: Colors.white,
-            backgroundImage: AssetImage('assets/image${profileStore.id}.png'),
+            backgroundImage: AssetImage('assets/image2.png'),
           ),
           const SizedBox(height: 25),
           Observer(
             builder: (_) {
               return Text(
                 '${profileStore.name}',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Gotham',
+
                   fontSize: 25,
                 ),
               );

@@ -1,4 +1,4 @@
-import 'package:fitness_app/Screens/goals_initial.dart';
+import 'package:fitness_app/Screens/goals/goals_initial.dart';
 import 'package:flutter/material.dart';
 
 class InitialScreen extends StatelessWidget {
@@ -13,7 +13,7 @@ class InitialScreen extends StatelessWidget {
         children: [
           Image.network(
             height: 300,
-            'https://cdn.discordapp.com/attachments/1199422661592371280/1365374052533010584/initial.png?ex=6822d3ed&is=6821826d&hm=be17a8699ad42106338d89992e3f45fa5c3a66088dd91a73db58cfb5c2c43f35&',
+            'https://cdn.discordapp.com/attachments/1199422661592371280/1365374052533010584/initial.png?ex=6824256d&is=6822d3ed&hm=15f02cf196694b71ed70d4f055dbe08d923964b42fe96daa432417b19bf7a59e&',
           ),
           Text(
             'Challenge with Friends',

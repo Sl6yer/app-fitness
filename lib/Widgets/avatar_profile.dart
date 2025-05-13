@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fitness_app/store/profile_store_singleton.dart';
+import 'package:fitness_app/store/profile/profile_store_singleton.dart';
 
 class AvatarProfile extends StatelessWidget {
   const AvatarProfile({super.key, required this.avatar, required this.id});

@@ -1,7 +1,7 @@
-import 'package:fitness_app/Screens/home_screen.dart';
+import 'package:fitness_app/Screens/home/home_screen.dart';
 import 'package:fitness_app/Widgets/goals_profile.dart';
-import 'package:fitness_app/store/goals_store.dart';
-import 'package:fitness_app/store/goals_store_singleton.dart';
+import 'package:fitness_app/store/goals/goals_store.dart';
+import 'package:fitness_app/store/goals/goals_store_singleton.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

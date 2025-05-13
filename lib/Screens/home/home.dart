@@ -2,17 +2,18 @@ import 'package:fitness_app/Widgets/container_information.dart';
 import 'package:fitness_app/Widgets/heart_information.dart';
 import 'package:fitness_app/Widgets/water_information.dart';
 import 'package:fitness_app/store/firebase/daily_calories_store.dart';
-import 'package:fitness_app/store/goals_store_singleton.dart';
-import 'package:fitness_app/store/profile_store_singleton.dart';
+import 'package:fitness_app/store/goals/goals_store_singleton.dart';
+import 'package:fitness_app/store/profile/profile_store_singleton.dart';
 import 'package:flutter/material.dart';
-import 'package:fitness_app/Screens/home.dart';
+import 'package:fitness_app/Screens/home/home.dart';
 import 'package:fitness_app/Widgets/Date_Navigator.dart';
 
 import 'package:fitness_app/Widgets/topCurve_clipper.dart';
-import 'package:fitness_app/store/bottom_nav_store.dart';
+import 'package:fitness_app/store/others/bottom_nav_store.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -54,9 +55,8 @@ class Home extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               'Your Activies',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 27,
-                fontFamily: 'Gotham',
                 fontWeight: FontWeight.bold,
               ),
             ),

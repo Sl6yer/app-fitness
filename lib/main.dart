@@ -1,5 +1,5 @@
-import 'package:fitness_app/Screens/home_screen.dart';
-import 'package:fitness_app/Screens/initial_screen.dart';
+import 'package:fitness_app/Screens/home/home_screen.dart';
+import 'package:fitness_app/Screens/others/initial_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

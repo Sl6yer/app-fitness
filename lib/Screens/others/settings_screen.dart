@@ -1,10 +1,10 @@
-import 'package:fitness_app/Screens/edit_profile_screen.dart';
+import 'package:fitness_app/Screens/profile/edit_profile_screen.dart';
 import 'package:fitness_app/Widgets/row_profile.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fitness_app/store/profile_store_singleton.dart';
+import 'package:fitness_app/store/profile/profile_store_singleton.dart';
 
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({super.key});

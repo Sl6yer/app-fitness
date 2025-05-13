@@ -1,4 +1,4 @@
-import 'package:fitness_app/store/goals_store_singleton.dart';
+import 'package:fitness_app/store/goals/goals_store_singleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';

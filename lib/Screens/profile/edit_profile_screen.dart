@@ -1,13 +1,13 @@
-import 'package:fitness_app/Screens/home_screen.dart';
+import 'package:fitness_app/Screens/home/home_screen.dart';
 import 'package:fitness_app/Widgets/avatar_profile.dart';
 import 'package:fitness_app/Widgets/textField_name.dart';
 
-import 'package:fitness_app/store/profile_store.dart';
+import 'package:fitness_app/store/profile/profile_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
-import 'package:fitness_app/store/profile_store_singleton.dart';
+import 'package:fitness_app/store/profile/profile_store_singleton.dart';
 
 class EditProfileScreen extends StatelessWidget {
   EditProfileScreen({super.key});

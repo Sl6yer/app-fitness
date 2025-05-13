@@ -1,9 +1,9 @@
-import 'package:fitness_app/Screens/water_screen.dart';
+import 'package:fitness_app/Screens/goals/steps_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:fitness_app/store/goals_store_singleton.dart';
+import 'package:fitness_app/store/goals/goals_store_singleton.dart';
 
-class StepsScreen extends StatelessWidget {
-  const StepsScreen({super.key});
+class GoalsInitial extends StatelessWidget {
+  const GoalsInitial({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class StepsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'What is your daily \nsteps goal?',
+              'What is your daily \ncalorie goal?',
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -28,9 +28,9 @@ class StepsScreen extends StatelessWidget {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  goalsStore.setStepsGoals4k();
+                  goalsStore.setCaloriesGoals1k();
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => WaterScreen()),
+                    MaterialPageRoute(builder: (context) => StepsScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -39,7 +39,7 @@ class StepsScreen extends StatelessWidget {
                   ),
                   backgroundColor: Color.fromRGBO(255, 125, 125, 1),
                 ),
-                child: Text('4k Steps', style: TextStyle(color: Colors.white)),
+                child: Text('1000 Kcal', style: TextStyle(color: Colors.white)),
               ),
             ),
             const SizedBox(height: 20),
@@ -48,9 +48,9 @@ class StepsScreen extends StatelessWidget {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  goalsStore.setStepsGoals6k();
+                  goalsStore.setCaloriesGoals18k();
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => WaterScreen()),
+                    MaterialPageRoute(builder: (context) => StepsScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -59,7 +59,7 @@ class StepsScreen extends StatelessWidget {
                   ),
                   backgroundColor: Color.fromRGBO(105, 224, 199, 1),
                 ),
-                child: Text('6k Steps', style: TextStyle(color: Colors.white)),
+                child: Text('1800 Kcal', style: TextStyle(color: Colors.white)),
               ),
             ),
             const SizedBox(height: 20),
@@ -68,9 +68,9 @@ class StepsScreen extends StatelessWidget {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  goalsStore.setStepsGoals8k();
+                  goalsStore.setCaloriesGoals22k();
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => WaterScreen()),
+                    MaterialPageRoute(builder: (context) => StepsScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -79,7 +79,7 @@ class StepsScreen extends StatelessWidget {
                   ),
                   backgroundColor: Color.fromRGBO(138, 36, 255, 1),
                 ),
-                child: Text('8k Steps', style: TextStyle(color: Colors.white)),
+                child: Text('2200 Kcal', style: TextStyle(color: Colors.white)),
               ),
             ),
             const SizedBox(height: 20),
@@ -88,9 +88,9 @@ class StepsScreen extends StatelessWidget {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  goalsStore.setStepsGoals10k();
+                  goalsStore.setCaloriesGoals25k();
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => WaterScreen()),
+                    MaterialPageRoute(builder: (context) => StepsScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -99,7 +99,7 @@ class StepsScreen extends StatelessWidget {
                   ),
                   backgroundColor: Color.fromRGBO(101, 207, 88, 1),
                 ),
-                child: Text('10k Steps', style: TextStyle(color: Colors.white)),
+                child: Text('2500 Kcal', style: TextStyle(color: Colors.white)),
               ),
             ),
           ],

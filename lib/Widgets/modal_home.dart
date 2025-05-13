@@ -1,4 +1,4 @@
-import 'package:fitness_app/Screens/calories_screen.dart';
+import 'package:fitness_app/Screens/others/calories_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';

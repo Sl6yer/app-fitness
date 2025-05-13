@@ -3,7 +3,7 @@ import 'package:fitness_app/Widgets/calories_history.dart';
 import 'package:fitness_app/Widgets/consumption.dart';
 import 'package:fitness_app/services/firebase_service.dart';
 import 'package:flutter/material.dart';
-import 'package:fitness_app/store/goals_store_singleton.dart';
+import 'package:fitness_app/store/goals/goals_store_singleton.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

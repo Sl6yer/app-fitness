@@ -1,7 +1,7 @@
-import 'package:fitness_app/Screens/barcode_scanner_screen.dart';
+import 'package:fitness_app/Screens/barcode/barcode_scanner_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:fitness_app/store/barcode_store_singleton.dart';
+import 'package:fitness_app/store/barcode/barcode_store_singleton.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LogsScreen extends StatelessWidget {

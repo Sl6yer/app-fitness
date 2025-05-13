@@ -1,4 +1,4 @@
-import 'package:fitness_app/Screens/home_screen.dart';
+import 'package:fitness_app/Screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
