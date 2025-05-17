@@ -279,6 +279,23 @@ mixin _$GoalsStore on _GoalsStoreBase, Store {
     return _$setMediaSemanalAsyncAction.run(() => super.setMediaSemanal());
   }
 
+  late final _$saveGoalsToPrefsAsyncAction =
+      AsyncAction('_GoalsStoreBase.saveGoalsToPrefs', context: context);
+
+  @override
+  Future<void> saveGoalsToPrefs() {
+    return _$saveGoalsToPrefsAsyncAction.run(() => super.saveGoalsToPrefs());
+  }
+
+  late final _$loadGoalsFromPrefsAsyncAction =
+      AsyncAction('_GoalsStoreBase.loadGoalsFromPrefs', context: context);
+
+  @override
+  Future<void> loadGoalsFromPrefs() {
+    return _$loadGoalsFromPrefsAsyncAction
+        .run(() => super.loadGoalsFromPrefs());
+  }
+
   late final _$_GoalsStoreBaseActionController =
       ActionController(name: '_GoalsStoreBase', context: context);
 

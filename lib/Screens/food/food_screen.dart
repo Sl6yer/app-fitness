@@ -23,7 +23,7 @@ class FoodSearchScreen extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 32),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
               child: TextField(
                 controller: _controller,
                 onSubmitted: (_) => _search(),
@@ -44,7 +44,13 @@ class FoodSearchScreen extends StatelessWidget {
               child: Observer(
                 builder: (_) {
                   if (foodStore.isLoading) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Colors.orange,
+                        ),
+                      ),
+                    );
                   }
 
                   if (foodStore.searchResults.isEmpty) {

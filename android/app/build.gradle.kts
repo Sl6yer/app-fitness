@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
-    id("com.google.gms.google-services") // Plugin Firebase
-    id("org.jetbrains.kotlin.android")   // Kotlin (caso esteja usando)
+    id("com.google.gms.google-services")
+    id("org.jetbrains.kotlin.android")
     id("dev.flutter.flutter-gradle-plugin")
 }
 
@@ -13,6 +13,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true // ✅ Kotlin DSL usa "isCoreLibraryDesugaringEnabled"
     }
 
     kotlinOptions {
@@ -21,14 +22,15 @@ android {
 
     defaultConfig {
         applicationId = "com.example.fitness_app"
-        minSdk = flutter.minSdkVersion
+        minSdk = 21
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        multiDexEnabled = true
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -36,4 +38,8 @@ android {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4") // ✅ Desugaring ativado
 }

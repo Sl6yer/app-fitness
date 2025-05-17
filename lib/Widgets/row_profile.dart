@@ -49,7 +49,7 @@ class RowProfile extends StatelessWidget {
                     title,
                     style: GoogleFonts.poppins(
                       fontSize: 17,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ],

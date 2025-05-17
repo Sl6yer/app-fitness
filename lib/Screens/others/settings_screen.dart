@@ -1,3 +1,4 @@
+import 'package:fitness_app/Screens/notification/notification_screen.dart';
 import 'package:fitness_app/Screens/profile/edit_profile_screen.dart';
 import 'package:fitness_app/Widgets/row_profile.dart';
 
@@ -118,7 +119,11 @@ class SettingsScreen extends StatelessWidget {
             iconData: FontAwesomeIcons.bell,
             iconBgColor: Color.fromRGBO(105, 224, 199, 0.3),
             iconColor: Color.fromRGBO(105, 224, 199, 1),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (_) => NotificationScreen()));
+            },
           ),
           RowProfile(
             title: 'Close Friends',

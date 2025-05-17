@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:mobx/mobx.dart';
 part 'goals_store.g.dart';
 
@@ -12,7 +13,7 @@ abstract class _GoalsStoreBase with Store {
   @action
   void setCalories(int newGoal) {
     caloriesGoal = newGoal;
-    print(caloriesGoal);
+    saveGoalsToPrefs();
   }
 
   @observable
@@ -21,7 +22,7 @@ abstract class _GoalsStoreBase with Store {
   @action
   void setProtein(int newGoal) {
     proteinGoal = newGoal;
-    print(proteinGoal);
+    saveGoalsToPrefs();
   }
 
   @observable
@@ -164,6 +165,7 @@ abstract class _GoalsStoreBase with Store {
   @action
   void setSteps(int newGoal) {
     stepsGoal = newGoal;
+    saveGoalsToPrefs();
   }
 
   @observable
@@ -172,6 +174,7 @@ abstract class _GoalsStoreBase with Store {
   @action
   void setWater(int newGoal) {
     waterGoal = newGoal;
+    saveGoalsToPrefs();
   }
 
   @computed
@@ -210,60 +213,96 @@ abstract class _GoalsStoreBase with Store {
   @action
   void setCaloriesGoals1k() {
     caloriesGoal = 1000;
+    saveGoalsToPrefs();
   }
 
   @action
   void setCaloriesGoals18k() {
     caloriesGoal = 1800;
+    saveGoalsToPrefs();
   }
 
   @action
   void setCaloriesGoals22k() {
     caloriesGoal = 2200;
+    saveGoalsToPrefs();
   }
 
   @action
   void setCaloriesGoals25k() {
     caloriesGoal = 2500;
+    saveGoalsToPrefs();
   }
 
   @action
   void setStepsGoals4k() {
     stepsGoal = 4000;
+    saveGoalsToPrefs();
   }
 
   @action
   void setStepsGoals6k() {
     stepsGoal = 6000;
+    saveGoalsToPrefs();
   }
 
   @action
   void setStepsGoals8k() {
     stepsGoal = 8000;
+    saveGoalsToPrefs();
   }
 
   @action
   void setStepsGoals10k() {
     stepsGoal = 10000;
+    saveGoalsToPrefs();
   }
 
   @action
   void setWaterGoals15() {
     waterGoal = 15;
+    saveGoalsToPrefs();
   }
 
   @action
   void setWaterGoals2() {
     waterGoal = 2;
+    saveGoalsToPrefs();
   }
 
   @action
   void setWaterGoals25() {
     waterGoal = 25;
+    saveGoalsToPrefs();
   }
 
   @action
   void setWaterGoals3() {
     waterGoal = 3;
+    saveGoalsToPrefs();
+  }
+
+  @action
+  Future<void> saveGoalsToPrefs() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    await prefs.setInt('caloriesGoal', caloriesGoal);
+    await prefs.setInt('stepsGoal', stepsGoal);
+    await prefs.setInt('waterGoal', waterGoal);
+
+    print('Goals saved to prefs: $caloriesGoal, $stepsGoal, $waterGoal');
+  }
+
+  @action
+  Future<void> loadGoalsFromPrefs() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    caloriesGoal = prefs.getInt('caloriesGoal') ?? 0;
+    stepsGoal = prefs.getInt('stepsGoal') ?? 0;
+    waterGoal = prefs.getInt('waterGoal') ?? 0;
+
+    print(
+      'Goals loaded to prefs: $caloriesGoal, $proteinGoal, $stepsGoal, $waterGoal',
+    );
   }
 }
